@@ -3,7 +3,7 @@ udk-avprogramming 2014-2015_WS
 
 Olofsson: Audiovisual Programming - Back to basics
 
-This semester we will focus on writing simple programs that produce complex result. We will work with [SuperCollider](http://supercollider.github.io) for sound, [Processing](https://www.processing.org) for graphics, [Python](https://www.python.org) for data and text manipulation and [Arduino](https://www.arduino.cc) for blinking lights and running motors. So the course will be quite a mixture of techniques and programming languages, but we will try to always boil it down to the essentials. Each meeting will have a specific topic and in the end of the semester we will have collected a broad range of tiny computer programs that can serve as basis for future work and experimentation.
+This semester we will focus on writing simple programs that produce complex result. We will work with [SuperCollider](http://supercollider.github.io) for sound, [Processing](https://www.processing.org) for graphics, [Python](http://www.python.org) for data and text manipulation and [Arduino](http://www.arduino.cc) for blinking lights and running motors. So the course will be quite a mixture of techniques and programming languages, but we will try to always boil it down to the essentials. Each meeting will have a specific topic and in the end of the semester we will have collected a broad range of tiny computer programs that can serve as basis for future work and experimentation.
 Suitable for beginner as well as medium-advanced programmers. Bring your own laptop and headphones.
 
 room111, UdK, medienhaus, kleistpark
