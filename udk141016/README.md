@@ -124,6 +124,8 @@ Ndef(\sound).set(\freq, 500)
 fork{ 200.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*5000+800); 0.002.wait}}
 ```
 
+note: you can stop all supercollider sounds with cmd+. (or alt+. in windows)
+
 open the stethoscope window with this command...
 ```
 s.scope
@@ -167,7 +169,7 @@ that will create a file and start the pico/nano text editor.  then write the fol
 ```
 import math
 i= 0
-for i in range(200):
+for i in range(2000):
 	print math.sin(i*0.01) 
 ```
 
@@ -179,6 +181,53 @@ next run the python program like this...
 python pythontest1.py
 ```
 
+that should post 2000 values from -1.0 to 1.0
+
+next try this program...
+
+```
+pico pythontest2.py
+```
+
+```
+import math
+import time
+i= 0
+while i<200:
+	print math.sin(i*0.01)
+	i= i+1
+	time.sleep(0.1)
+print "done"
+```
+
+which will print 200 values but with a 100 milliseconds delay between each.
+
+note: you can stop python programs with `ctrl+c`.
+
+last a more advanced ascii graphics program...
+
+```
+pico pythontest3.py
+```
+
+```
+import math
+import time
+i= 0
+while i<200:
+	j= int(math.sin(i*0.05)*30+30)
+	str= ''
+	while j>0:
+		str= str+'*'
+		j= j-1
+	print str
+	i= i+1
+	time.sleep(0.05)
+
+
+again `ctrl+o` and `ctrl+x` and then run with `python pythontest3.py`
+
+it should print out the sine curve using * characters.
 
 arduino
 =======
@@ -216,8 +265,6 @@ void loop() {
   delay(10);
 }
 ```
-
-
 
 resources
 =========
