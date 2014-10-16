@@ -177,6 +177,8 @@ python should already be installed on your computer (at least on osx and linux).
 
 open the Terminal application (on osx it is in applications/utilities)
 
+note: for windows you need to install python separately from <https://www.python.org/downloads/windows>
+
 type...
 `pico pythontest1.py`
 
@@ -290,3 +292,5 @@ resources
 Dan Shiffman's introduction to programming (using processing) <https://vimeo.com/channels/introcompmedia>
 
 Eli Fieldsteel's supercollider tutorials <https://www.youtube.com/watch?v=yRzsOOiJ_p4>
+
+online python interpreter <http://repl.it/languages/Python>
