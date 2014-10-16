@@ -51,7 +51,7 @@ note you can also code the same thing using the built-in map function...
 
 play around and change some numbers. try to remove the background(255) line. swap line for rect etc etc.
 
-last a more wild example where we copy and paste a few times and then replace some static numbers with sin functions.
+next a more wild example where we copy and paste a few times and then replace some static numbers with sin functions.
 
 ```
 int i= 0;
@@ -70,14 +70,14 @@ void draw() {
 }
 ```
 
-and a bonus example...
+and last a bonus example...
 
 ```
 int i= 0;
 void setup() {
-  frameRate(60);
-  size(640, 480, P2D);
-  smooth(4);
+  frameRate(60); //faster frame updaterate
+  size(640, 480, P2D); //using P2D renderer for nicer lines
+  smooth(4); //some antialiasing
 }
 void draw() {
   stroke(sin(i*0.003)*127.5+127.5); //grey color
@@ -108,7 +108,7 @@ copy this and paste in to a new document. select all and do 'evaluate selection,
 
 it should post 2000 values.
 
-but supercollider is mainly for sound. and to make sound we need first boot the sound server program...
+supercollider is mainly for sound. and to produce sound we always need to first boot the sound server program...
 ```
 s.boot
 ```
@@ -117,16 +117,32 @@ check the post window to see if there are any errors. open the meter window (cmd
 run each line separate...
 
 ```
-Ndef(\sound, {|freq= 500| SinOsc.ar(freq)}).play
+Ndef(\sound, {|freq= 500| SinOsc.ar(freq)}).play //this should sound
 
-Ndef(\sound).set(\freq, 500)
+Ndef(\sound).set(\freq, 600) //this should change the pitch of the sound
 
-fork{ 200.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*5000+800); 0.002.wait}}
+fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*5000+800); 0.002.wait}}
+```
+
+try to run many fork processes at the same time...
+
+```
+fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*500+800); 0.01.wait}}
+
+fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*500+900); 0.031.wait}}
+
+fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*500+1900); 0.2.wait}}
+```
+
+and the same with some lag on the frequency argument...
+```
+Ndef(\sound, {|freq= 500| SinOsc.ar(freq.lag(0.1))}).play
 ```
 
 note: you can stop all supercollider sounds with cmd+. (or alt+. in windows)
 
 open the stethoscope window with this command...
+
 ```
 s.scope
 ```
