@@ -272,12 +272,18 @@ void loop() {
 }
 ```
 
-using a led. try changing from pin 13 to pin 9 and add a real led + resistor.
+connect an arduino, select the right board and serial port and then click upload. you should see 'Done uploading' without errors if it worked.
+
+then open the serial monitor. it should look something like this...
+
+![arduino](arduino.png?raw=true "arduino")
+
+now try using the built-in led...
 
 ```
 int i= 0;
 void setup() {
-  pinMode(13, OUTPUT); //activate builtin led
+  pinMode(13, OUTPUT); //activate built in led
 }
 void loop() {
   analogWrite(13, int(sin(i*0.01)*127.5+127.5));
@@ -285,6 +291,8 @@ void loop() {
   delay(10);
 }
 ```
+
+note: the internal led might not fade properly, so change from pin 13 to pin 9 and add a real external led + resistor to best see the sine fading effect.
 
 resources
 =========
