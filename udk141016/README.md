@@ -164,7 +164,7 @@ open the Terminal application (on osx it is in applications/utilities)
 type...
 `pico pythontest1.py`
 
-that will create a file and start the pico/nano text editor.  then write the following python program...
+that will create a file and start the pico/nano text editor.  then write the following python program in that editor...
 
 ```
 import math
@@ -204,6 +204,8 @@ which will print 200 values but with a 100 milliseconds delay between each.
 
 note: you can stop python programs with `ctrl+c`.
 
+note2: in python indentation (tab and spaces) is very important.
+
 last a more advanced ascii graphics program...
 
 ```
@@ -223,7 +225,7 @@ while i<200:
 	print str
 	i= i+1
 	time.sleep(0.05)
-
+```
 
 again `ctrl+o` and `ctrl+x` and then run with `python pythontest3.py`
 
