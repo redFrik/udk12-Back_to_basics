@@ -10,13 +10,13 @@ general course introduction
 today we will just try out four different programming languages and play with the sin math function.
 
 very simplified we can use sin and give it a number, and it will return another number that is always in the range of -1.0 to 1.0.
-so sin(1004) will give us -0.96609442513715 and sin(32.3) will give 0.77332788956622.
+so for example sin(1004) will give us -0.96609442513715 and sin(32.3) will give 0.77332788956622.
 
-if we in code make a counter and perform sin(counter) for each step we will get this nice curve...
+if we in code make a counter and perform sin(counter*0.01) for each step we will get this nice curve...
 
 ![sine](sine.png?raw=true "sine")
 
-here the counter (horizontal axis) is counting from 0 up to 1999, and the result (of the sin(counter)) is vertically displayed and show the values running smoothly from -1.0 to 1.0.
+here the counter (horizontal axis) is counting from 0 up to 1999, and the result (of the sin(counter*0.01)) is vertically displayed and show the values running smoothly from -1.0 to 1.0.
 
 processing
 ==========
@@ -30,9 +30,9 @@ for(int i= 0; i<2000; i++) {
   println( sin(i*0.01) );
 }
 ```
-it will just print out 2000 values.
+it will just print out 2000 values. (these are the same values as in the plot above)
 
-this example on the other hand draws a line from 0,0 to the middle of the window. the x ending position is set by the sin function. 
+this example on the other hand draws a line from upper left corner (0, 0) to the middle of the window. the x ending position is set by the sin function. 
 ```
 int i= 0;
 void setup() {
@@ -91,7 +91,7 @@ void draw() {
 }
 ```
 
-
+![processing_bonus](processing_bonus.png?raw=true "processing_bonus")
 
 supercollider
 =============
