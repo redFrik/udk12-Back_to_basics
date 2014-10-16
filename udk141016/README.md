@@ -52,18 +52,20 @@ note you can also code the same thing using the built-in map function...
 play around and change some numbers. try to remove the background(255) line. swap line for rect etc etc.
 
 last a more wild example where we copy and paste a few times and then replace some static numbers with sin functions.
-``
+
+```
 int i= 0;
 void setup() {
-  size(640, 480);
+  size(640, 480); //window size
 }
 void draw() {
-  background(255*sin(i*0.05)*0.5+(255*0.5));
-  //noFill();
+  background(255*sin(i*0.05)*0.5+(255*0.5)); //use 0-255 background grey color fade
+  //noFill(); //try uncomment this line
   rect(0, 0, sin(i*0.01)*width*0.5+(width*0.5), height*0.5);
   line(0, 0, sin(i*0.01)*width*0.5+(width*0.5), height*0.5);
   line(sin(i*0.4)*400+200, 0, sin(i*0.01)*width*0.5+(width*0.5), height*0.5);
   rect(0, (sin(i*0.02)*0.5+0.5)*width, sin(i*0.01)*width*0.5+(width*0.5), height*0.5);
+  //try adding more rect or line here
   i++;
 }
 ```
