@@ -13,6 +13,7 @@ very simplified we can use sin and give it a number, and it will return another 
 so sin(1004) will give us -0.96609442513715 and sin(32.3) will give 0.77332788956622.
 
 if we in code make a counter and perform sin(counter) for each step we will get this nice curve...
+
 ![sine](sine.png?raw=true "sine")
 
 here the counter (horizontal axis) is counting from 0 up to 1999, and the result (of the sin(counter)) is vertically displayed and show the values running smoothly from -1.0 to 1.0.
@@ -20,7 +21,7 @@ here the counter (horizontal axis) is counting from 0 up to 1999, and the result
 processing
 ==========
 
-download and install processing (2.2.1) <http://www.processing.org>
+download and install processing (2.2.1) from <http://www.processing.org>
 
 copy and paste this code into a new sketch and click the run button.
 
@@ -45,13 +46,12 @@ void draw() {
 ```
 
 note you can also code the same thing using the built-in map function...
-```
-line(0, 0, map(sin(i*0.01), -1, 1, 0, width), height*0.5);
-```
+
+`line(0, 0, map(sin(i*0.01), -1, 1, 0, width), height*0.5);`
 
 play around and change some numbers. try to remove the background(255) line. swap line for rect etc etc.
 
-last a more while example where we copy and paste a few times and then replace some static numbers with sin functions.
+last a more wild example where we copy and paste a few times and then replace some static numbers with sin functions.
 ``
 int i= 0;
 void setup() {
@@ -71,7 +71,7 @@ void draw() {
 supercollider
 =============
 
-download and install supercollider (3.6.6) <http://supercollider.github.io>
+download and install supercollider (3.6.6) from <http://supercollider.github.io>
 
 copy this and paste in to a new document. select all and do 'evaluate selection, line or region' under language menu. (cmd+return osx shortcut)
 
@@ -126,14 +126,46 @@ Ndef(\saw, {|freq= 500, amp= 0.1| BPF.ar(PinkNoise.ar(amp!2),freq*[1, 1.01])}).p
 python
 ======
 
-python should already be installed on your computer (osx + linux).
+python should already be installed on your computer (at least on osx and linux).
 
 arduino
 =======
 
-download and install arduino ide (1.0.6) <http://arduino.cc>
+download and install arduino ide (1.0.6) from <http://arduino.cc>
 
-you might also need the ftdi driver <http://www.ftdichip.com/Drivers/VCP.htm>
+note: you might also need the ftdi driver <http://www.ftdichip.com/Drivers/VCP.htm>
+
+note2: for the code below you will need an arduino board of some sort.
+
+this first example will just send back value via the serial port. open the serial monitor in the arduino ide to see the result (set baudrate in popup to 38400).
+
+```
+int i= 0; //our counter
+void setup() {
+  Serial.begin(38400); //set up serial port
+}
+void loop() {
+  Serial.println( sin(i*0.01) ); //print to serial port
+  i= i+1; //increase counter
+  delay(50); //wait 50milliseconds
+}
+```
+
+using a led. try changing from pin 13 to pin 9 and add a real led + resistor.
+
+```
+int i= 0;
+void setup() {
+  pinMode(13, OUTPUT); //activate builtin led
+}
+void loop() {
+  analogWrite(13, int(sin(i*0.01)*127.5+127.5));
+  i= i+1;
+  delay(10);
+}
+```
+
+
 
 resources
 =========
