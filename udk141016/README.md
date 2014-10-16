@@ -70,6 +70,29 @@ void draw() {
 }
 ```
 
+and a bonus example...
+
+```
+int i= 0;
+void setup() {
+  frameRate(60);
+  size(640, 480, P2D);
+  smooth(4);
+}
+void draw() {
+  stroke(sin(i*0.003)*127.5+127.5); //grey color
+  line( //arguments can be written on separate lines - easier to read
+    sin(i*0.023)*width*0.5+(width*0.5), //start x
+    sin(i*0.024)*height*0.5+(height*0.5), //start y
+    sin(i*0.01)*width*0.5+(width*0.5), //stop x
+    sin(i*0.012+0.3)*height*0.5+(height*0.5) //stop y
+  );
+  i++;
+}
+```
+
+
+
 supercollider
 =============
 
@@ -91,6 +114,8 @@ s.boot
 ```
 check the post window to see if there are any errors. open the meter window (cmd+m) and see if you have any signal.
 
+run each line separate...
+
 ```
 Ndef(\sound, {|freq= 500| SinOsc.ar(freq)}).play
 
@@ -103,6 +128,8 @@ open the stethoscope window with this command...
 ```
 s.scope
 ```
+
+now we try similar code but with a sawtooth oscillator and added amplitude (volume) control...
 
 ```
 Ndef(\saw, {|freq= 500, amp= 0.1| Saw.ar(freq*[1, 1.01], amp)}).play
@@ -117,18 +144,41 @@ fork{ 20000.do{|i| Ndef(\saw).set(\freq, sin(i*0.015)*50+200, \amp, sin(i*0.1));
 fork{ 20000.do{|i| Ndef(\saw).set(\freq, sin(i*0.015)*50+2000, \amp, sin(i*0.12)); 0.008.wait}}
 ```
 
-and change the oscillator while the program is running...
+one can change the oscillator while the program is running and add filters etc...
+
 ```
 Ndef(\saw, {|freq= 500, amp= 0.1| HPF.ar(Saw.ar(freq*[1, 1.01], amp),1000)}).play
 Ndef(\saw, {|freq= 500, amp= 0.1| LPF.ar(Blip.ar(freq*[1, 1.01], 400, amp),1000)}).play
 Ndef(\saw, {|freq= 500, amp= 0.1| BPF.ar(PinkNoise.ar(amp!2),freq*[1, 1.01])}).play
 ```
 
-
 python
 ======
 
 python should already be installed on your computer (at least on osx and linux).
+
+open the Terminal application (on osx it is in applications/utilities)
+
+type...
+`pico pythontest1.py`
+
+that will create a file and start the pico/nano text editor.  then write the following python program...
+
+```
+import math
+i= 0
+for i in range(200):
+	print math.sin(i*0.01) 
+```
+
+type `ctrl+o` to save and `ctrl+x` to exit.
+
+next run the python program like this...
+
+```
+python pythontest1.py
+```
+
 
 arduino
 =======
