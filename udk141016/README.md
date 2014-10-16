@@ -12,9 +12,10 @@ today we will just try out four different programming languages and play with th
 very simplified we can use sin and give it a number, and it will return another number that is always in the range of -1.0 to 1.0.
 so sin(1004) will give us -0.96609442513715 and sin(32.3) will give 0.77332788956622.
 
-if we make a counter and do sin(counter) for each step we will get this smooth sine curve...
+if we in code make a counter and perform sin(counter) for each step we will get this nice curve...
 ![sine](sine.png?raw=true "sine")
-here the counter (horizontal axis) is counting from 0 up to 2000, and the result (the sin(counter)) is vertically displaying values from -1.0 to 1.0.
+
+here the counter (horizontal axis) is counting from 0 up to 1999, and the result (of the sin(counter)) is vertically displayed and show the values running smoothly from -1.0 to 1.0.
 
 processing
 ==========
@@ -22,6 +23,7 @@ processing
 download and install processing (2.2.1) <http://www.processing.org>
 
 copy and paste this code into a new sketch and click the run button.
+
 ```
 for(int i= 0; i<2000; i++) {
   println( sin(i*0.01) );
@@ -29,7 +31,7 @@ for(int i= 0; i<2000; i++) {
 ```
 it will just print out 2000 values.
 
-this example draws a line from 0,0 to the middle of the window. the x ending position is set by the sin function. 
+this example on the other hand draws a line from 0,0 to the middle of the window. the x ending position is set by the sin function. 
 ```
 int i= 0;
 void setup() {
@@ -41,13 +43,16 @@ void draw() {
   i++;
 }
 ```
+
 note you can also code the same thing using the built-in map function...
-´´´
+```
 line(0, 0, map(sin(i*0.01), -1, 1, 0, width), height*0.5);
-´´´
+```
+
+play around and change some numbers. try to remove the background(255) line. swap line for rect etc etc.
 
 last a more while example where we copy and paste a few times and then replace some static numbers with sin functions.
-```
+``
 int i= 0;
 void setup() {
   size(640, 480);
@@ -63,12 +68,60 @@ void draw() {
 }
 ```
 
-
-
 supercollider
 =============
 
 download and install supercollider (3.6.6) <http://supercollider.github.io>
+
+copy this and paste in to a new document. select all and do 'evaluate selection, line or region' under language menu. (cmd+return osx shortcut)
+
+```
+2000.do{|i|
+	sin(i*0.01).postln;
+}
+```
+
+it should post 2000 values.
+
+but supercollider is mainly for sound. and to make sound we need first boot the sound server program...
+```
+s.boot
+```
+check the post window to see if there are any errors. open the meter window (cmd+m) and see if you have any signal.
+
+```
+Ndef(\sound, {|freq= 500| SinOsc.ar(freq)}).play
+
+Ndef(\sound).set(\freq, 500)
+
+fork{ 200.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*5000+800); 0.002.wait}}
+```
+
+open the stethoscope window with this command...
+```
+s.scope
+```
+
+```
+Ndef(\saw, {|freq= 500, amp= 0.1| Saw.ar(freq*[1, 1.01], amp)}).play
+
+Ndef(\saw).set(\freq, 150)
+Ndef(\saw).set(\amp, 0.1)
+
+fork{ 20000.do{|i| Ndef(\saw).set(\freq, sin(i*0.01)*100+100, \amp, sin(i*0.1)); 0.01.wait}}
+
+fork{ 20000.do{|i| Ndef(\saw).set(\freq, sin(i*0.015)*50+200, \amp, sin(i*0.1)); 0.01.wait}}
+
+fork{ 20000.do{|i| Ndef(\saw).set(\freq, sin(i*0.015)*50+2000, \amp, sin(i*0.12)); 0.008.wait}}
+```
+
+and change the oscillator while the program is running...
+```
+Ndef(\saw, {|freq= 500, amp= 0.1| HPF.ar(Saw.ar(freq*[1, 1.01], amp),1000)}).play
+Ndef(\saw, {|freq= 500, amp= 0.1| LPF.ar(Blip.ar(freq*[1, 1.01], 400, amp),1000)}).play
+Ndef(\saw, {|freq= 500, amp= 0.1| BPF.ar(PinkNoise.ar(amp!2),freq*[1, 1.01])}).play
+```
+
 
 python
 ======
