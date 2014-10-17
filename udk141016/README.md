@@ -292,7 +292,7 @@ void loop() {
 }
 ```
 
-note: the internal led might not fade properly, so change from pin 13 to pin 9 and add a real external led + resistor to best see the sine fading effect.
+note: the internal led will not fade properly (because pin13 can not do pwm), so change from pin 13 to pin 9 and add a real external led + resistor to best see the sine fading effect.
 
 resources
 =========
