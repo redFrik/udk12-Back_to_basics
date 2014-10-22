@@ -11,7 +11,7 @@ room111, UdK, medienhaus, kleistpark
 dates
 -----
 - [x] [16oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141016): quick introduction to processing, supercollider, python, arduino
-- [ ] [23oct 14-16]
+- [ ] [23oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141023): playing with processing
 - [ ] [30oct 14-16]
 - [ ] [06nov 14-16]
 - [ ] [13nov 14-16]
