@@ -12,7 +12,7 @@ dates
 -----
 - [x] [16oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141016): quick introduction to processing, supercollider, python, arduino
 - [x] [23oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141023): playing with processing
-- [ ] [30oct 14-16] playing with supercollider
+- [ ] [30oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141030): playing with supercollider
 - [ ] [06nov 14-16]
 - [ ] [13nov 14-16]
 - [ ] [20nov 14-16]
