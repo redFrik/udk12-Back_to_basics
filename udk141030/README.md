@@ -1,9 +1,15 @@
 141030
 ======
 
-playing with supercollider.
+playing with [supercollider](http://supercollider.github.io).
 
-see forthcoming examples in this folder.
+download and try the examples in this folder.
+
+these we wrote in class...
+
+[udk1.scd](udk1.scd?raw=true)
+[udk2.scd](udk2.scd?raw=true)
+[udk3.scd](udk3.scd?raw=true)
 
 links
 -----
