@@ -18,3 +18,21 @@ download and try the examples in this folder.
 [example09_previousdrawing.pde](example09_previousdrawing/example09_previousdrawing.pde?raw=true)
 
 [example10_filterdrawing.pde](example10_filterdrawing/example10_filterdrawing.pde?raw=true)
+
+these we wrote in class...
+
+[udk_test1.pde](udk_test1/udk_test1.pde?raw=true)
+
+[udk_test2.pde](udk_test2/udk_test2.pde?raw=true)
+
+[udk_test3.pde](udk_test3/udk_test3.pde?raw=true)
+
+[udk_test4.pde](udk_test4/udk_test4.pde?raw=true)
+
+[udk_test5.pde](udk_test5/udk_test5.pde?raw=true)
+
+[udk_test6.pde](udk_test6/udk_test6.pde?raw=true)
+
+bonus...
+
+[udk_testarray.pde](udk_testarray/udk_testarray.pde?raw=true)
