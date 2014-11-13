@@ -14,8 +14,8 @@ dates
 - [x] [23oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141023): playing with processing
 - [x] [30oct 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141030): playing with supercollider
 - [x] [06nov 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141106): more processing
-- [ ] [13nov 14-16]: more supercollider
-- [ ] [20nov 14-16]: **NO CLASS**
+- [x] [13nov 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141113): more supercollider
+- [ ] 20nov: **NO CLASS**
 - [ ] [27nov 14-16]: python experiments
 - [ ] [04dec 14-16]
 - [ ] [11dec 14-16]
