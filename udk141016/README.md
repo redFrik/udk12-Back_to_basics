@@ -184,7 +184,7 @@ type...
 
 that will create a file and start the pico/nano text editor.  then write the following python program in that editor...
 
-```
+```python
 import math
 i= 0
 for i in range(2000):
@@ -207,7 +207,7 @@ next try this program...
 pico pythontest2.py
 ```
 
-```
+```python
 import math
 import time
 i= 0
@@ -230,7 +230,7 @@ last a more advanced ascii graphics program...
 pico pythontest3.py
 ```
 
-```
+```python
 import math
 import time
 i= 0

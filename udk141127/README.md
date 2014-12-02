@@ -10,12 +10,12 @@ python is good for writing little glue type of programs. that is communicate bet
 internet -> (python) -> supercollider
 e.g. twitter -> (twython and osc library) -> supercollider
 
-hid -> python -> supercollider
+hid -> python -> supercollider ( [example](https://github.com/redFrik/udk10-Embedded_Systems/tree/master/udk140116#--using-hid-in-bbb) )
 opencv -> python -> supercollider
 
 supercollider -> python -> serial
 
-```
+```python
 #list
 a= [10, 20, 30, 40, 50, 60]
 print len(a)
@@ -70,7 +70,7 @@ a= a+[22]
 => [10, 30, 22]
 ```
 
-```
+```python
 #dictionary
 b= {'hello': 123, 'goodbye': 2}
 
@@ -96,7 +96,7 @@ a.values()
 => [123, 321]
 ```
 
-```
+```python
 #string
 a= "kjahsdkjh"
 "sd" in a
@@ -148,7 +148,7 @@ a.lower()
 => 'my little pony'
 ```
 
-```
+```python
 #iteration
 for cnt in range(256):
     print chr(cnt)
@@ -158,7 +158,7 @@ for b in a:
     print b
 ```
 
-```
+```python
 a= ""
 for cnt in range(30):
     for abc in range(10):
@@ -174,7 +174,7 @@ for cnt in range(30):
     print b
 ```
 
-```
+```python
 cnt= 0
 while cnt<100:
     i= 0
@@ -186,7 +186,7 @@ while cnt<100:
     cnt= cnt+2
 ```
 
-```
+```python
 #the below will not work in the online repl.it app
 import time
 time.localtime()
@@ -245,7 +245,7 @@ http://www.idiotinside.com/2014/09/04/string-processing-in-python/
 
 
 save the below as frogs.py and then run it with `python frogs.py`. it will create a file called frogtest.txt with the resulting ascii graphics.
-```
+```python
 #!/usr/bin/python
 f= file("frogtest.txt", "w")
 a= "my little frog is sitting in the bathtub!"
@@ -259,7 +259,7 @@ f.close()
 ```
 
 save this as grogs.py
-```
+```python
 #!/usr/bin/python
 a= "my little frog is sitting in the bathtub!"
 for cnt in range(30):
