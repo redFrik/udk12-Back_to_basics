@@ -11,6 +11,7 @@ internet -> (python) -> supercollider
 e.g. twitter -> (twython and osc library) -> supercollider
 
 hid -> python -> supercollider ( [example](https://github.com/redFrik/udk10-Embedded_Systems/tree/master/udk140116#--using-hid-in-bbb) )
+
 opencv -> python -> supercollider
 
 supercollider -> python -> serial
@@ -225,10 +226,14 @@ g.next()
 g.next()
 g.next()
 f.close()
+```
 
-map(ord, "lkjlkj") #chr to int
 
-chr(67) #int to chr
+```python
+#ascii graphics
+print map(ord, "lkjlkj") #chr to int
+
+print chr(67) #int to chr
 
 a= ""
 for i in range(35):
@@ -237,8 +242,7 @@ for i in range(35):
     print a
     a= ""
 
-a.__class__
-
+print a.__class__
 ```
 
 http://www.idiotinside.com/2014/09/04/string-processing-in-python/
