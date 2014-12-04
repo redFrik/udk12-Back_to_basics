@@ -30,8 +30,8 @@ overview
 --
 
 there are four very common commands/techniques and we will go through each one and try the typical use case.
-two of them are digitalWrite and digitalRead. these use only 0 and 1 for reading and writing to/from pins.
-the other two are analogWrite and analotRead. these use continuous values (0-255 and 0-1023) for reading and writing to special 'analog' 'pins.
+two of them are `digitalWrite` and `digitalRead`. these use only 0 and 1 for reading and writing to/from pins.
+the other two are `analogWrite` and `analogRead`. these use continuous values (0-255 and 0-1023) for reading and writing to special 'analog' 'pins.
 
 * digitalWrite (0/1)
 * analogWrite(0-255)    //only works on pins with the ~ sign
@@ -56,7 +56,7 @@ void loop() {
 }
 ```
 
-[img]
+[img] TODO
 
 keep the same connection and upload the following example...
 
@@ -116,7 +116,7 @@ void loop() {
 
 analogWrite
 --
-note it is called analogWrite but it is actually pwm (pulse-width modulation).
+note it is called analogWrite but the functionallity is actually [pwm](http://arduino.cc/en/Tutorial/PWM) (pulse-width modulation).
 
 ```
 //simple fade led
@@ -184,14 +184,28 @@ void loop() {
 //analogRead
 ```
 
+TODO
+
 
 communication
 --
 to send data to and from the laptop we need to use the serial port.
 
-ultrasound (serial test exempel)
+TODO
+
+ultrasound
+--
+ (serial test exempel)
+
+TODO
 
 //--bonus:
 
-blinka två samtidigt (4 mot 3)
-kurvatur (table lookup)
+TODO kurvatur (table lookup)
+
+
+links
+--
+one of the best place to find information about what you can do with an arduino and how you do it.
+<http://playground.arduino.cc>
+look at section 'interfacing with hardware / input' for example.
