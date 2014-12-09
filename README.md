@@ -18,8 +18,8 @@ dates
 - [ ] 20nov: **NO CLASS**
 - [x] [27nov 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141127): python experiments
 - [x] [04dec 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141204): arduino experiments (please bring an arduino if you have)
-- [ ] [11dec 14-16]
-- [ ] [18dec 14-16]
+- [ ] [11dec 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141211): arduino and processing
+- [ ] [18dec 14-16]: arduino and supercollider
 - [ ] 25dec: **NO CLASS**
 - 2015 dates added here later
 
