@@ -211,8 +211,6 @@ communication
 --
 to send data to and from the laptop we need to use the serial port.
 
-note that the serial port can only send 8bit values (from 0 to 255). if you need floats, strings or larger values, you will need to combine multiple 8bit bytes.
-
 ```cpp
 //simple serial send from arduino to laptop
 int cnt= 0;
@@ -255,7 +253,8 @@ you will need to open the serial monitor again and type 'A' or 'B' in the top se
 
 ![serialRead](serialRead.png?raw=true "serialRead")
 
-and note that `Serial.print` and `Serial.println` are mainly good for debugging with arduino's serial monitor. use `Serial.write` when you want to send raw bytes to other programs like supercollider and processing.
+in most cases the serial port is set up to only send 8bit values (from 0 to 255). so if you need to send floats, strings or larger numbers, you will need to combine multiple 8bit bytes.
+note that `Serial.print` and `Serial.println` does some magic under the hood so that it is easy to view the data being sent in a serial monitor, but `Serial.write` is recommended for less overhead (normally less data sent, less parsing on the receiver side). so rule of thumb is that `Serial.print` and `Serial.println` are mainly good for debugging with arduino's serial monitor, but use `Serial.write` when you want to send raw bytes to other programs like supercollider and processing.
 
 ultrasound
 --
