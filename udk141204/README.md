@@ -33,7 +33,7 @@ overview
 
 there are four very common commands/techniques and we will go through each one and try the typical use case.
 two of them are `digitalWrite` and `digitalRead`. these use only 0 and 1 for reading and writing to/from pins.
-the other two are `analogWrite` and `analogRead`. these use continuous values (0-255 and 0-1023) for reading and writing to special 'analog' 'pins.
+the other two are `analogWrite` and `analogRead`. these use continuous values (0-255 and 0-1023) for reading and writing to special 'analogue' pins.
 
 * digitalWrite (0/1)
 * analogWrite(0-255)    //only works on pins with the ~ sign
@@ -42,8 +42,8 @@ the other two are `analogWrite` and `analogRead`. these use continuous values (0
 
 digitalWrite
 --
-```
-//--simple blink led
+```cpp
+//simple blink led
 //connect led+resistor to pin 11 and gnd
 //note the marking on the side of the led - that leg must go to gnd
 void setup() {
@@ -61,8 +61,8 @@ void loop() {
 
 keep the same connection and upload the following example...
 
-```
-//--blink two leds (alternating)
+```cpp
+//blink two leds (alternating)
 void setup() {
     pinMode(11, OUTPUT);
     pinMode(13, OUTPUT);    //here also using the built-in on-board blue led
@@ -83,8 +83,8 @@ void loop() {
 note how arduino is single threaded. that means it can only do one thing at a time and it is actually quite difficult to do two or more independent things (unlike in multithreaded programming languages like supercollider).
 so in the example right above we blink the leds one after the other - and that's simple. but if we want to blink them both at different independent tempi, we need to write more code. the below example show one way to do it. the trick is to avoid `delay()` and keep the loop running by using counters.
 
-```
-//--independent blinking (advanced)
+```cpp
+//independent blinking (advanced)
 int cnt1= 0;
 int cnt2= 0;
 void setup() {
@@ -120,7 +120,7 @@ analogWrite
 --
 note it is called analogWrite but the functionallity is actually [pwm](http://arduino.cc/en/Tutorial/PWM) (pulse-width modulation).
 
-```
+```cpp
 //simple fade led
 //keep led+resistor connected to pin 11 and gnd
 //note the little ~ marking next to pin 11
@@ -144,7 +144,7 @@ note how the cnt variable is linear (0-255), but the percived brightness of the 
 
 digitalRead
 --
-```
+```cpp
 //simple digital read
 //connect a button or switch between pin 3 and gnd
 //when you press the button the led should go off
@@ -163,7 +163,8 @@ void loop() {
 
 ![switch](switch.jpg?raw=true "switch")
 
-```
+keep the connections and try this...
+```cpp
 //a little bit more advanced switch
 //digital read that read pin 3 and fade led if pressed
 int cnt= 0;
@@ -187,7 +188,7 @@ void loop() {
 
 analogRead
 --
-```
+```cpp
 //simple analog read
 //connect a bare wire to A0
 void setup() {
@@ -200,11 +201,11 @@ void loop() {
 }
 ```
 
-now the bare wire will act as an antenna. touch it and the led should flicker. connect it to gnd and the led should go off. connect it to 5v and the led should go to full brightness.
+now the bare wire in A0 will act as an antenna. touch it and the led should flicker. connect it to gnd and the led should go off. connect it to 5v and the led should go to full brightness.
 
 ![analog](analog.jpg?raw=true "analog")
 
-a more 'normal' way to use the analog inputs (a0-a5) is to connect the middle pin of a potentiometer and the other two potentiometer pins to 5v and gnd. see <simple_analog_read2> on [this](https://github.com/redFrik/udk10-Embedded_Systems/blob/master/udk131212/README.md#--analog-inputs) page.
+a more 'normal' way to use the analog inputs is to connect one of the pins A0-A5 to the middle pin of a potentiometer. and then the other two potentiometer pins to 5v and gnd. see the instructions on [this](https://github.com/redFrik/udk10-Embedded_Systems/blob/master/udk131212/README.md#--analog-inputs) page.
 
 communication
 --
@@ -212,7 +213,7 @@ to send data to and from the laptop we need to use the serial port.
 
 note that the serial port can only send 8bit values (from 0 to 255). if you need floats, strings or larger values, you will need to combine multiple 8bit bytes.
 
-```
+```cpp
 //simple serial send from arduino to laptop
 int cnt= 0;
 void setup() {
@@ -229,7 +230,7 @@ void loop() {
 
 make sure a led is connected to pin 11 and then upload and test the next example.
 
-```
+```cpp
 //serial read from laptop to arduino
 void setup() {
     Serial.begin(57600);  //baudrate - must match in serial monitor / sc
@@ -254,23 +255,23 @@ you will need to open the serial monitor again and type 'A' or 'B' in the top se
 
 ![serialRead](serialRead.png?raw=true "serialRead")
 
-and note that ´Serial.print´ and ´Serial.println´ are mainly good for debugging with arduino's serial monitor. use ´Serial.write´ when you want to send raw bytes to other programs like supercollider and processing.
+and note that `Serial.print` and `Serial.println` are mainly good for debugging with arduino's serial monitor. use `Serial.write` when you want to send raw bytes to other programs like supercollider and processing.
 
 ultrasound
 --
 download the DistanceSRF04 library from <https://code.google.com/p/srf04-library/> and connect like in the picture below.
 
-first try the ´ultraschall_test´ code. check the result in arduino serial monitor.
+first try the `ultraschall_test` code. check the result in arduino serial monitor.
 
 ![ultraschall](ultraschall.jpg?raw=true "ultraschall")
 
-then keep the same hardware setup but upload the other ´ultraschall´ example. it includes a supercollider patch that demonstrates how to get the serial sensor data into sc and control a filter with it.
+then keep the same hardware setup but upload the other `ultraschall` example. it includes a supercollider patch that demonstrates how to get the serial sensor data into sc and control a filter with it.
 
 bonus
 --
 table lookup can be used to make leds fade nices. if we fade them lineary like in all the analogWrite examples above, the brightness seem to dip very quickly close to 0 and not change much as we approach 255. the lookup table can compensate for that.
 
-```
+```cpp
 //table lookup
 //using bytes to save memory
 int cnt= 0;
@@ -297,6 +298,7 @@ Array.fill(256, {|x| x/255**c*255}).asInteger.postcs.plot;
 
 similar example but fading in and out
 
+```cpp
 //more advanced table lookup
 int cnt= 0;
 byte table[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 13, 13, 14, 14, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 19, 20, 21, 21, 22, 22, 23, 23, 24, 25, 25, 26, 27, 27, 28, 29, 29, 30, 31, 31, 32, 33, 34, 34, 35, 36, 37, 37, 38, 39, 40, 41, 42, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 52, 53, 54, 55, 56, 57, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 71, 72, 73, 74, 75, 77, 78, 79, 80, 82, 83, 84, 85, 87, 88, 89, 91, 92, 93, 95, 96, 98, 99, 100, 102, 103, 105, 106, 108, 109, 111, 112, 114, 115, 117, 119, 120, 122, 123, 125, 127, 128, 130, 132, 133, 135, 137, 138, 140, 142, 144, 145, 147, 149, 151, 153, 155, 156, 158, 160, 162, 164, 166, 168, 170, 172, 174, 176, 178, 180, 182, 184, 186, 188, 190, 192, 194, 197, 199, 201, 203, 205, 207, 210, 212, 214, 216, 219, 221, 223, 226, 228, 230, 233, 235, 237, 240, 242, 245, 247, 250, 252, 255};
@@ -320,7 +322,7 @@ void loop() {
 ```
 
 last you can calculate curvatures etc on the fly. but note that floating-point math like in the example below may bog down the 8bit arduino processor (cpu). working in floating point quickly fills up the program memory, makes the cpu work harder and may cosume more power (e.g. if you want to save battery life do less taxing calculations and thereby put the cpu to sleep quicker).
-```
+```cpp
 //advanced fading of a single led
 int cnt = 0;
 void setup() {
@@ -339,7 +341,7 @@ void loop() {
 }
 ```
 
-try to change the line ´val = pow(val, 2) * 255.0;´ to ´val = val * 255.0;´ and thereby skip the curvature brightness mapping. it's a subtle but noticable difference. without the led spends less time at the bottom (lowest brightness).
+try to change the line `val = pow(val, 2) * 255.0;` to `val = val * 255.0;` and thereby skip the curvature brightness mapping. it's a subtle but noticable difference. without the led spends less time at the bottom (lowest brightness).
 there's lot to play around with when it comes to fading leds in a nice way. small tweaks can make an important difference (ref. apple laptop standby led - someone spent time getting that breathing led exactly right).
 and different leds will behave differently. higher pwm frequency and dithering are other technique to explore if you want it even smoother near the lowest brightness (e.g. the step between 0 (off) and 1 (first on)).
 

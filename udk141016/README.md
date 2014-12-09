@@ -260,7 +260,7 @@ note2: for the code below you will need an arduino board of some sort.
 
 this first example will just send back value via the serial port. open the serial monitor in the arduino ide to see the result (set baudrate in popup to 38400).
 
-```
+```cpp
 int i= 0; //our counter
 void setup() {
   Serial.begin(38400); //set up serial port
@@ -280,7 +280,7 @@ then open the serial monitor. it should look something like this...
 
 now try using the built-in led...
 
-```
+```cpp
 int i= 0;
 void setup() {
   pinMode(13, OUTPUT); //activate built in led
