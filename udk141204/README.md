@@ -260,11 +260,11 @@ ultrasound
 --
 download the DistanceSRF04 library from <https://code.google.com/p/srf04-library/> and connect like in the picture below.
 
-first try the `ultraschall_test` code. check the result in arduino serial monitor.
+first try the `ultraschall_test` code that you can find in this directory. check the result in arduino serial monitor (it uses Serial.println).
 
 ![ultraschall](ultraschall.jpg?raw=true "ultraschall")
 
-then keep the same hardware setup but upload the other `ultraschall` example. it includes a supercollider patch that demonstrates how to get the serial sensor data into sc and control a filter with it.
+then keep the same hardware setup but upload the other `ultraschall` example. it includes a supercollider patch that demonstrates how to get the serial sensor data into sc (using Serial.write) and control a filter with it.
 
 bonus
 --
