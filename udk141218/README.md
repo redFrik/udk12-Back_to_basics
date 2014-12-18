@@ -147,4 +147,4 @@ note that the mosfet might need a [heatsink](http://www.adafruit.com/blog/2012/0
 
 the 'flyback' diode can be a 1N4001, 1N4007 or anything in between.
 
-use thick shirt wires for the 12V. don't connect it on a breadboard if you need to draw more than maybe 1A - then it is better to solder the components on a protoboard.
+use thick short wires for the 12V and motor. don't connect it on a breadboard if you need to draw more than maybe 1A - then it is better to solder the components on a protoboard.
