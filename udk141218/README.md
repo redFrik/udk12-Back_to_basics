@@ -50,10 +50,14 @@ it should sound and post values. stop it with cmd+period.
 now try lowering the delay time in arduino, change the sound in supercollider, change the mapping (.linexp) also in supercollider, maybe add a smoothing .lag(1) to freq etc etc.
 
 then try connect a potentiometer like this...
+
 ![simple_analog_read](simple_analog_read.jpg?raw=true "simple_analog_read")
 
-and perhaps try a light sensor (photoresistor / LDR). you can connect it with a voltage divider like this... (the resistor here is 10K)
+and perhaps try a light sensor (photoresistor / LDR). you can connect it with a voltage divider like this...
+
 ![simple_analog_read2](simple_analog_read2.jpg?raw=true "simple_analog_read2")
+
+(the resistor here is 10K)
 
 multiple sensors
 --
