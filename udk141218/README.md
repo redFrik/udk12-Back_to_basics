@@ -6,6 +6,9 @@ arduino and supercollider
 simple
 --
 upload this sketch to your arduino. it will read A0, scale down from 0-1023 to 0-255 and send this as a raw byte value over serial.
+
+note the difference between `Serial.write` and `Serial.println`. the latter is only really useful for debugging in arduino's serial monitor. use .write when sending to supercollider (or processing).
+
 ```cpp
 void setup() {
     Serial.begin(57600);
@@ -17,15 +20,15 @@ void loop() {
 }
 ```
 
-(the above is the same example as last week)
+(the above is the same example and then one we started with last week)
 
 then run this code in supercollider. it will try to connect to your arduino serial port (edit the port name to match your arduino port). 
 ```
 s.boot;
+SerialPort.listDevices.postln; //post available ports
 
 (
 var port;
-SerialPort.listDevices.postln; //post available ports
 port= SerialPort("/dev/tty.usbserial-A101NAZV", 57600, crtscts: true); //edit to match your arduino portname
 Ndef(\snd, {|freq= 400| SinOsc.ar(freq*[1, 1.01], 0, 0.4)}).play;
 Routine.run({
@@ -67,7 +70,6 @@ and the matching supercollider code then needs to look like this...
 ```
 (
 var port;
-SerialPort.listDevices.postln; //post available ports
 port= SerialPort("/dev/tty.usbserial-A101NB79", 57600, crtscts: true); //edit to match your arduino portname
 Ndef(\snd, {|freq= 400, amp= 0.4| SinOsc.ar(freq*[1, 1.01], 0, amp)}).play;
 Routine.run({
@@ -90,6 +92,33 @@ so connect sensors to A0 and A1 and run the code above. A0 should control freque
 the added complexity here is because we probably want to know which of the values A0 or A1 we are receiving in supercollider. to do that we can first send out a special value (here 100), then the A0 value and last the A1 value. so the whole 'package' will be [100, A0, A1].
 in supercollider we then read input values and wait until a 100 is received. then we know that we can read the following two incoming values into the right variables (here A0 and A1 into val and val2).
 this is not 100% failsafe, but for now it's ok. (e.g. it will fail at upstart if both analog inputs are also 100). to improve it you can send more 'header' and even 'footer' values, but that also comes to with a price of more data overhead more cpu load.
+
+controlling soundfile playback
+--
+last we change the supercollider code a little bit so that it will loop a soundfile instead of playing a synthetic sound. A0 will control playback rate (think tape speed) and A1 the volume - just like before.
+```
+s.boot;
+b= Buffer.read(s, "/Users/Helmut/sounds/drums/hhat5.aiff"); //edit this to point to an .aiff or .wav
+b.play; //test to see if it loaded
+
+(
+var port;
+port= SerialPort("/dev/tty.usbserial-A101NB79", 57600, crtscts: true); //edit to match your arduino portname
+Ndef(\snd, {|freq= 400, amp= 0.4| PlayBuf.ar(b.numChannels, b, freq/2000, loop:1)*amp}).play; //try other than 2000
+Routine.run({
+    var header, val, val2;
+    inf.do{
+        while({header= port.read; header!=100}, {});
+        val= port.read;
+        //val.postln; //debug
+        Ndef(\snd).set(\freq, val.linexp(0, 255, 300, 3000));
+        val2= port.read;
+        Ndef(\snd).set(\amp, val2.linlin(0, 255, 0, 1));
+    };
+});
+CmdPeriod.doOnce({port.close});
+)
+```
 
 extra
 --
