@@ -41,3 +41,30 @@ CmdPeriod.doOnce({port.close});
 ```
 
 it should sound and post values. stop it with cmd+period.
+
+extra
+--
+how to connect a 12V dc motor or 12V lamp(s).
+
+```cpp
+//arduino code for testing mosfet_dcmotor
+void setup() {
+    pinMode(9, OUTPUT);
+}
+void loop() {
+    digitalWrite(9, 1);
+    delay(2000);
+    digitalWrite(9, 0);
+    delay(3000);
+}
+```
+
+![mosfet_dcmotor](mosfet_dcmotor.png?raw=true "mosfet_dcmotor")
+
+![mosfet_dcmotor_schem](mosfet_dcmotor_schem.png?raw=true "mosfet_dcmotor_schem")
+
+note that the mosfet might need a heat sink.
+
+the 'flyback' diode can be an 1N4001, 1N4007 or anything in between.
+
+use thick wires and short for the 12V. don't connect it on a breadboard if you need to draw more than maybe 1A - solder the components on a protoboard instead.
