@@ -159,3 +159,38 @@ note that the mosfet might need a [heatsink](http://www.adafruit.com/blog/2012/0
 the 'flyback' diode can be a 1N4001, 1N4007 or anything in between.
 
 use thick short wires for the 12V and motor. don't connect it on a breadboard if you need to draw more than maybe 1A - then it is better to solder the components on a protoboard.
+
+extra2
+--
+synthetic piano with effects. for the following example to work you will need to download and install [sc3-plugins](http://sourceforge.net/projects/sc3-plugins/).
+```
+s.boot;
+
+(
+SynthDef(\pi, {|out=0, freq=440, amp=0.5, gate=1, rho=1|
+    var src= OteyPiano.ar(freq, amp, gate, rho:rho);
+    OffsetOut.ar(out, Pan2.ar(src));
+}).add;
+SynthDef(\ringmod, {|in= 10, out=0, freq= 20|
+    var src= In.ar(in, 2);
+    Out.ar(out, src*SinOsc.ar(freq));
+}).add;
+)
+
+(
+d= Synth(\ringmod);
+Pbind(
+    \instrument, \pi,
+    \delta, 0.25,
+    \dur, 0.5,
+    \degree, Pseq([1, 3, 5], inf),
+    //\rho, Pwhite(0.1,3) //effect
+    \out, Pseq([0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 10], inf) //ringmod
+).play;
+)
+
+d.set(\freq, 2000)
+d.set(\freq, 200)
+d.set(\freq, 20)
+d.set(\freq, 2)
+```
