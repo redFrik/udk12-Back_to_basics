@@ -104,14 +104,14 @@ b.play; //test to see if it loaded
 (
 var port;
 port= SerialPort("/dev/tty.usbserial-A101NB79", 57600, crtscts: true); //edit to match your arduino portname
-Ndef(\snd, {|freq= 400, amp= 0.4| PlayBuf.ar(b.numChannels, b, freq/2000, loop:1)*amp}).play; //try other than 2000
+Ndef(\snd, {|rate= 1, amp= 0.4| PlayBuf.ar(b.numChannels, b, rate, loop:1)*amp}).play;
 Routine.run({
     var header, val, val2;
     inf.do{
         while({header= port.read; header!=100}, {});
         val= port.read;
         //val.postln; //debug
-        Ndef(\snd).set(\freq, val.linexp(0, 255, 300, 3000));
+        Ndef(\snd).set(\rate, val.linlin(0, 255, -1, 3));   //try with different min/max (-1 and 3)
         val2= port.read;
         Ndef(\snd).set(\amp, val2.linlin(0, 255, 0, 1));
     };
