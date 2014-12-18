@@ -42,10 +42,13 @@ CmdPeriod.doOnce({port.close});
 
 it should sound and post values. stop it with cmd+period.
 
+now try lowering the delay time in arduino, change the sound in supercollider, change the mapping (.linexp) also in supercollider, maybe add a smoothing .lag(1) to freq etc etc.
+
+
 multiple sensors
 --
-if you want to read more than one analog input, the code gets a little bit more involved. to know which value we are receiving in supercollider, we can first send out a special value (here 100), then the A0 value and last the A1 value. supercollider then waits until it receives 100 and then read the following two incoming values into the right variables (here val and val2).
-this is not 100% failsafe, but for now it's ok. (e.g. it will fail at upstart if both analog inputs are also 100). to improve it you can send more 'header' and even 'footer' values, but that also comes to with a price of more data overhead more cpu load.
+if you want to read more than one analog input, the code gets a little bit more involved.
+
 ```cpp
 void setup() {
     Serial.begin(57600);
@@ -84,6 +87,10 @@ CmdPeriod.doOnce({port.close});
 
 so connect sensors to A0 and A1 and run the code above. A0 should control frequency and A1 volume.
 
+the added complexity here is because we probably want to know which of the values A0 or A1 we are receiving in supercollider. to do that we can first send out a special value (here 100), then the A0 value and last the A1 value. so the whole 'package' will be [100, A0, A1].
+in supercollider we then read input values and wait until a 100 is received. then we know that we can read the following two incoming values into the right variables (here A0 and A1 into val and val2).
+this is not 100% failsafe, but for now it's ok. (e.g. it will fail at upstart if both analog inputs are also 100). to improve it you can send more 'header' and even 'footer' values, but that also comes to with a price of more data overhead more cpu load.
+
 extra
 --
 how to connect a 12V dc motor or 12V lamp(s).
@@ -101,7 +108,7 @@ void loop() {
 }
 ```
 
-here we show an arduino nano, but it will work with any type of arduino (just double check it has an onboard regulator and can take 12V on the vin pin - most can).
+here in the picture is an arduino nano, but it will work with any type of arduino (just double check it has an onboard regulator and can take 12V on the vin pin - most can).
 
 ![mosfet_dcmotor](mosfet_dcmotor.png?raw=true "mosfet_dcmotor")
 
