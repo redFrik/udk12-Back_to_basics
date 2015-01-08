@@ -23,7 +23,10 @@ dates
 - [ ] 25dec: **NO CLASS**
 - [ ] 01jan: **NO CLASS**
 - [ ] 08jan: present own small project
-- more 2015 dates added here later
+- [ ] 15jan: own project
+- [ ] 22jan: own project
+- [ ] 29jan: **NO CLASS**
+- [ ] 05feb: own project
 
 links to previous semesters... <http://redfrik.github.io/udk00-Audiovisual_Programming/>
 
