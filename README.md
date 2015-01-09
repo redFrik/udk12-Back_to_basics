@@ -22,7 +22,7 @@ dates
 - [x] [18dec 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk141218): arduino and supercollider
 - [ ] 25dec: **NO CLASS**
 - [ ] 01jan: **NO CLASS**
-- [ ] 08jan: present own small project
+- [x] [08jan 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk150108): present own small project
 - [ ] 15jan: own project
 - [ ] 22jan: own project
 - [ ] 29jan: **NO CLASS**
