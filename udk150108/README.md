@@ -31,6 +31,14 @@ Ndef(\clicksine, {SinOsc.ar([150, 151], 0, 0.5)*(SinOsc.ar([3, 4])>0)}).play
 {SinOsc.ar(5000)+SinOsc.ar(200)}.plot
 ```
 
+analyzing sound
+---
+
+three ways (out of many) to extract/track data from microphone input (or any sound)
+
+* amplitude
+* pitch (frequency)
+* centroid (kind of timbre (if the sound is noisy or pure))
 
 amplitude tracking
 --
@@ -49,11 +57,8 @@ Ndef(\amptrk, {SinOsc.ar([400, 404])*(Schmidt.ar(Amplitude.ar(DelayN.ar(SoundIn.
 Ndef(\amptrk, {SinOsc.ar([400, 404])*(Schmidt.ar(Amplitude.ar(CombN.ar(SoundIn.ar, 0.5, 0.5, 5)).lag(0.3), 0.02, 0.1)).poll}).play
 ```
 
-three ways (out of many) to extract/track data from microphone input (or any sound)
-
-* amplitude
-* pitch (frequency)
-* centroid (kind of timbre (if the sound is noisy or pure))
+pitch tracking
+--
 
 ```
 Ndef(\pchtrk, {SinOsc.ar(Pitch.kr(SoundIn.ar)[0].poll, 0, 0.5)}).play
