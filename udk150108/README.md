@@ -1,7 +1,7 @@
 150108
 ======
 
-own projects
+present own small project + sines + tracking
 
 
 sinewaves
