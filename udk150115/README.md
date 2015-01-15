@@ -6,7 +6,7 @@ own project + oscP5 + tracking
 
 simple text
 --
-run and study this processing code...
+first run and study this processing code...
 
 ```cpp
 //simple example just to show how to draw text
@@ -26,7 +26,7 @@ void draw() {
 osc from sc to processing
 --
 install the oscP5 library and run this processing code...
-´´´cpp
+```cpp
 //--osc_sc_to_processing_example
 //install library oscP5:
 //  menu > sketch > import library > add library
@@ -52,15 +52,15 @@ void oscEvent(OscMessage oscIn) {
         }
     }
 }
-´´´
+```
 
 then try this supercollider code...
-´´´
+```
 n= NetAddr("127.0.0.1", 9876);
 n.sendMsg(\abc, 567.432);
 n.sendMsg(\abc, 4000.0);//make sure to send a float
 n.sendMsg(\abc, 3000);//this will not be accepted by processing (an integer)
-´´´
+```
 
 9876 is the port and "127.0.0.1" is the localhost (or loopback) ip address. the port number can be nearly anything, but use "127.0.0.1" exactly as written when you want to send osc data between applications on the same computer.
 
