@@ -98,33 +98,33 @@ centroid
 //try whistle versus blowing into the mic
 (
 Ndef(\noisetrk, {
-var chain, freq, centroid;
-chain= FFT(LocalBuf(2048, 1), SoundIn.ar);
-centroid= SpecCentroid.kr(chain);
-freq= centroid.linexp(1300, 7000, 100, 1000).lag(0.1);
-SinOsc.ar(freq, 0, 0.4);
+    var chain, freq, centroid;
+    chain= FFT(LocalBuf(2048, 1), SoundIn.ar);
+    centroid= SpecCentroid.kr(chain);
+    freq= centroid.linexp(1300, 7000, 100, 1000).lag(0.1);
+    SinOsc.ar(freq, 0, 0.4);
 }).play
 )
 
 //'consonant' detector
 (
 Ndef(\noisetrk, {
-var chain, amp, centroid;
-chain= FFT(LocalBuf(2048, 1), SoundIn.ar);
-centroid= SpecCentroid.kr(chain);
-amp= centroid.linlin(1300, 7000, 0, 1).lag(0.1)>0.4;
-SinOsc.ar([400, 404], 0, amp);
+    var chain, amp, centroid;
+    chain= FFT(LocalBuf(2048, 1), SoundIn.ar);
+    centroid= SpecCentroid.kr(chain);
+    amp= centroid.linlin(1300, 7000, 0, 1).lag(0.1)>0.4;
+    SinOsc.ar([400, 404], 0, amp);
 }).play
 )
 
 //'vowel' detector - note only changed from > to < for
 (
 Ndef(\noisetrk, {
-var chain, amp, centroid;
-chain= FFT(LocalBuf(2048, 1), SoundIn.ar);
-centroid= SpecCentroid.kr(chain);
-amp= centroid.linlin(1300, 7000, 0, 1).lag(0.1)<0.4;
-SinOsc.ar([400, 404], 0, amp);
+    var chain, amp, centroid;
+    chain= FFT(LocalBuf(2048, 1), SoundIn.ar);
+    centroid= SpecCentroid.kr(chain);
+    amp= centroid.linlin(1300, 7000, 0, 1).lag(0.1)<0.4;
+    SinOsc.ar([400, 404], 0, amp);
 }).play
 )
 ```
@@ -138,15 +138,15 @@ first connect an arduino and upload this code...
 //connect led with resistor between pin9 and gnd
 //upload to arduino
 void setup() {
-Serial.begin(57600);
-pinMode(9, OUTPUT);
+    Serial.begin(57600);
+    pinMode(9, OUTPUT);
 }
 void loop() {
-if(Serial.available()) {
-int val= Serial.read();  //0-255
-analogWrite(9, val);  //0-255
-}
-delay(1);
+    if(Serial.available()) {
+        int val= Serial.read();  //0-255
+        analogWrite(9, val);  //0-255
+    }
+    delay(1);
 }
 ```
 
@@ -175,11 +175,11 @@ var sp= SerialPort("/dev/tty.usbserial-A101NAZV", 57600, crtscts: true);    //ed
 CmdPeriod.doOnce({sp.close});
 OSCFunc({|msg|
     msg.postln;
-    sp.put(msg[3].expexp(60, 4000, 0.1, 255).asInteger);
+    sp.put(msg[3].expexp(60, 4000, 0.1, 255).asInteger);    //scale frequency to 0-255
 }, "/fre");
 Ndef(\fretrk, {
-    var pitch= Pitch.kr(SoundIn.ar)[0].lag(0.3);
-    SendReply.kr(Impulse.kr(60), "/fre", pitch);
+    var pitch= Pitch.kr(SoundIn.ar)[0].lag(0.3);    //0.3 is smooth factor
+    SendReply.kr(Impulse.kr(60), "/fre", pitch);    //60 is updaterate
     SinOsc.ar(pitch, 0, 0.5);
 }).play;
 )
