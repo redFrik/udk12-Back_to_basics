@@ -24,7 +24,7 @@ dates
 - [ ] 01jan: **NO CLASS**
 - [x] [08jan 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk150108): present own small project + sines + tracking
 - [x] [15jan 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk150115): own project + oscP5 + tracking
-- [ ] 22jan: own project
+- [x] 22jan: own project
 - [ ] 29jan: **NO CLASS**
 - [ ] 05feb: own project
 
