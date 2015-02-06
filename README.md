@@ -26,7 +26,7 @@ dates
 - [x] [15jan 14-16](https://github.com/redFrik/udk12-Back_to_basics/tree/master/udk150115): own project + oscP5 + tracking
 - [x] 22jan: own project
 - [ ] 29jan: **NO CLASS**
-- [ ] 05feb: own project
+- [x] 05feb: own project - last meeting
 
 links to previous semesters... <http://redfrik.github.io/udk00-Audiovisual_Programming/>
 
