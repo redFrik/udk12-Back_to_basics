@@ -3,7 +3,7 @@
 
 more [supercollider](http://supercollider.github.io).
 
-```
+```supercollider
 //questions from last week?
 
 //today more sc

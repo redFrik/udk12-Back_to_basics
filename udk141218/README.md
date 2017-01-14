@@ -23,7 +23,7 @@ void loop() {
 (the above is the same example and then one we started with last week)
 
 then run this code in supercollider. it will try to connect to your arduino serial port (edit the port name to match your arduino port). 
-```
+```supercollider
 s.boot;
 SerialPort.listDevices.postln; //post available ports
 
@@ -78,7 +78,7 @@ void loop() {
 ```
 
 and the matching supercollider code then needs to look like this...
-```
+```supercollider
 (
 var port;
 port= SerialPort("/dev/tty.usbserial-A101NB79", 57600, crtscts: true); //edit to match your arduino portname
@@ -107,7 +107,7 @@ this is not 100% failsafe, but for now it's ok. (e.g. it will fail at upstart if
 controlling soundfile playback
 --
 last we change the supercollider code a little bit so that it will loop a soundfile instead of playing a synthetic sound. A0 will control playback rate (think tape speed) and A1 the volume - just like before.
-```
+```supercollider
 s.boot;
 b= Buffer.read(s, "/Users/Helmut/sounds/drums/hhat5.aiff"); //edit this to point to an .aiff or .wav
 b.play; //test to see if it loaded
@@ -163,7 +163,7 @@ use thick short wires for the 12V and motor. don't connect it on a breadboard if
 extra2
 --
 synthetic piano with effects. for the following example to work you will need to download and install [sc3-plugins](http://sourceforge.net/projects/sc3-plugins/).
-```
+```supercollider
 s.boot;
 
 (

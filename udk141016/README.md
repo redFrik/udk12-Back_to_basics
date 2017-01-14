@@ -25,7 +25,7 @@ download and install processing (2.2.1) from <http://www.processing.org>
 
 copy and paste this code into a new sketch and click the run button.
 
-```
+```cpp
 for(int i= 0; i<2000; i++) {
   println( sin(i*0.01) );
 }
@@ -33,7 +33,7 @@ for(int i= 0; i<2000; i++) {
 it will just print out 2000 values. (these are the same values as in the plot above)
 
 this example on the other hand draws a line from upper left corner (0, 0) to the middle of the window. the x ending position is set by the sin function. 
-```
+```cpp
 int i= 0;
 void setup() {
   size(640, 480);
@@ -53,7 +53,7 @@ play around and change some numbers. try to remove the background(255) line. swa
 
 next a more wild example where we copy and paste a few times and then replace some static numbers with sin functions.
 
-```
+```cpp
 int i= 0;
 void setup() {
   size(640, 480); //window size
@@ -72,7 +72,7 @@ void draw() {
 
 and last a bonus example...
 
-```
+```cpp
 int i= 0;
 void setup() {
   frameRate(60); //faster frame updaterate
@@ -100,7 +100,7 @@ download and install supercollider (3.6.6) from <http://supercollider.github.io>
 
 copy this and paste in to a new document. select all and do 'evaluate selection, line or region' under language menu. (cmd+return osx shortcut)
 
-```
+```supercollider
 2000.do{|i|
 	sin(i*0.01).postln;
 }
@@ -109,14 +109,14 @@ copy this and paste in to a new document. select all and do 'evaluate selection,
 it should post 2000 values.
 
 supercollider is mainly for sound. and to produce sound we always need to first boot the sound server program...
-```
+```supercollider
 s.boot
 ```
 check the post window to see if there are any errors. open the meter window (cmd+m) and see if you have any signal.
 
 run each line separate...
 
-```
+```supercollider
 Ndef(\sound, {|freq= 500| SinOsc.ar(freq)}).play //this should sound
 
 Ndef(\sound).set(\freq, 600) //this should change the pitch of the sound
@@ -126,7 +126,7 @@ fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*5000+800); 0.002.wait}}
 
 try to run many fork processes at the same time...
 
-```
+```supercollider
 fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*500+800); 0.01.wait}}
 
 fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*500+900); 0.031.wait}}
@@ -135,7 +135,7 @@ fork{ 2000.do{|i| Ndef(\sound).set(\freq, sin(i*0.01)*500+1900); 0.2.wait}}
 ```
 
 and the same with some lag on the frequency argument...
-```
+```supercollider
 Ndef(\sound, {|freq= 500| SinOsc.ar(freq.lag(0.1))}).play
 ```
 
@@ -143,13 +143,13 @@ note: you can stop all supercollider sounds with cmd+. (or alt+. in windows)
 
 open the stethoscope window with this command...
 
-```
+```supercollider
 s.scope
 ```
 
 now we try similar code but with a sawtooth oscillator and added amplitude (volume) control...
 
-```
+```supercollider
 Ndef(\saw, {|freq= 500, amp= 0.1| Saw.ar(freq*[1, 1.01], amp)}).play
 
 Ndef(\saw).set(\freq, 150)
@@ -164,7 +164,7 @@ fork{ 20000.do{|i| Ndef(\saw).set(\freq, sin(i*0.015)*50+2000, \amp, sin(i*0.12)
 
 one can change the oscillator while the program is running and add filters etc...
 
-```
+```supercollider
 Ndef(\saw, {|freq= 500, amp= 0.1| HPF.ar(Saw.ar(freq*[1, 1.01], amp),1000)}).play
 Ndef(\saw, {|freq= 500, amp= 0.1| LPF.ar(Blip.ar(freq*[1, 1.01], 400, amp),1000)}).play
 Ndef(\saw, {|freq= 500, amp= 0.1| BPF.ar(PinkNoise.ar(amp!2),freq*[1, 1.01])}).play
@@ -195,7 +195,7 @@ type `ctrl+o` to save and `ctrl+x` to exit.
 
 next run the python program like this...
 
-```
+```bash
 python pythontest1.py
 ```
 
@@ -203,7 +203,7 @@ that should post 2000 values from -1.0 to 1.0
 
 next try this program...
 
-```
+```bash
 pico pythontest2.py
 ```
 
@@ -226,7 +226,7 @@ note2: in python indentation (tab and spaces) is very important.
 
 last a more advanced ascii graphics program...
 
-```
+```bash
 pico pythontest3.py
 ```
 

@@ -7,7 +7,7 @@ present own small project + sines + tracking
 sinewaves
 --
 
-```
+```supercollider
 s.boot
 
 //beating sines
@@ -42,7 +42,7 @@ three ways (out of many) to extract/track data from microphone input (or any sou
 
 amplitude tracking
 --
-```
+```supercollider
 Ndef(\amptrk, {SinOsc.ar([400, 404])*(Amplitude.ar(SoundIn.ar)>0.3).poll}).play
 
 //using mouse to set a good threshold
@@ -62,7 +62,7 @@ Ndef(\amptrk, {SinOsc.ar([400, 404])*(Schmidt.ar(Amplitude.ar(CombN.ar(SoundIn.a
 pitch tracking
 --
 
-```
+```supercollider
 Ndef(\pchtrk, {SinOsc.ar(Pitch.kr(SoundIn.ar)[0].poll, 0, 0.5)}).play
 
 //lag is very useful for smoothing out the resulting control signal (also see lag2, lagud, lag3)
@@ -79,7 +79,7 @@ Ndef(\pchtrk, {SinOsc.ar(Pitch.kr(CombN.ar(SoundIn.ar, 1, 1))[0].lag(0.5).poll, 
 
 routing the pitch to another synth
 --
-```
+```supercollider
 (
 Ndef(\freqtracker, {Pitch.kr(SoundIn.ar)[0].lag(0.2)});
 
@@ -94,7 +94,7 @@ Ndef(\mysecondsynth, {PlayBuf.ar(b.numChannels, b, Ndef(\freqtracker).kr.explin(
 centroid
 --
 
-```
+```supercollider
 //try whistle versus blowing into the mic
 (
 Ndef(\noisetrk, {
@@ -150,7 +150,7 @@ void loop() {
 }
 ```
 
-```
+```supercollider
 //--amplitude turning led on/off
 SerialPort.listDevices  //should show your arduino
 

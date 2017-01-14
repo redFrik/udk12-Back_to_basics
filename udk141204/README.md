@@ -290,7 +290,7 @@ void loop() {
 ```
 
 the supercollider code i wrote for generating this lookup table...
-```
+```supercollider
 c= 2.5; //curvature - try different values
 Array.fill(256, {|x| x/255**c*255}).asInteger.postcs.plot;
 ```

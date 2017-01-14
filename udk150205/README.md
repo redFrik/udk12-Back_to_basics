@@ -12,7 +12,7 @@ see the folder 'sctomax' for two examples of sending osc data from supercollider
 
 supercollider code: sctomax.scd
 
-```
+```supercollider
 //use with sctomax.maxpat
 s.latency= 0.05;
 s.boot;

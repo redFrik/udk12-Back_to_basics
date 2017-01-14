@@ -55,7 +55,7 @@ void oscEvent(OscMessage oscIn) {
 ```
 
 then try this supercollider code...
-```
+```supercollider
 n= NetAddr("127.0.0.1", 9876);
 n.sendMsg(\abc, 567.432);
 n.sendMsg(\abc, 4000.0);//make sure to send a float
@@ -66,7 +66,7 @@ n.sendMsg(\abc, 3000);//this will not be accepted by processing (an integer)
 
 if the above works, we can then move on to some more advanced code.
 
-```
+```supercollider
 //--osc_sc_to_processing.scd
 //analyze pitch and send to processing
 (
