@@ -55,7 +55,7 @@ hall effect sensors
 detect magnetic fields. useful when you want/need a no contact, no cable sensor. e.g. spinning wheels or other rotating things (just attach a magnet to the wheel and put the hall sensor close to where the magnet passes by).
 
 a simple digital (0/1) magnet switch sensor is the TLE4095L. it needs 3.8v to 24v, is easy to connect and relatively cheap.
-see this pdf [datasheet](http://pdf.datasheetcatalog.com/datasheet/infineon/1-tle4905l.pdf) for pinouts etc.
+see this PDF [datasheet](https://www.infineon.com/dgdl/Infineon-TLE49X5L-DataSheet-v01_05-en.pdf?fileId=db3a304316f66ee80117549ac8b206b1) for pinouts etc.
 
 upload this code to the arduino and connect the sensor as in the picture below.
 ```cpp
@@ -96,7 +96,7 @@ void loop() {
 ```
 
 there are also hall sensors that give an analogue reading - not only on and off.
-read more about it [here](http://playground.arduino.cc/Main/InterfacingWithHardware#Magnetic_Hall). and also check out reed switches while you're there - they are even simpler to work with.
+read more about it [here](https://playground.arduino.cc/Main/InterfacingWithHardware/#Magnetic_Hall). and also check out reed switches while you're there - they are even simpler to work with.
 
 more advanced example
 --

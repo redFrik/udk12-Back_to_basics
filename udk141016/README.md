@@ -1,7 +1,7 @@
 general course introduction
 --------------------
 
-* links to previous semesters... <http://redfrik.github.io/udk00-Audiovisual_Programming/>
+* links to previous semesters... <https://redfrik.github.io/udk00-Audiovisual_Programming/>
 * and dates + times for this course... <https://github.com/redFrik/udk12-Back_to_basics> <-save this page
 
 141016
@@ -21,7 +21,7 @@ here the counter (horizontal axis) is counting from 0 up to 1999, and the result
 processing
 ==========
 
-download and install processing (2.2.1) from <http://www.processing.org>
+download and install processing (2.2.1) from <https://www.processing.org>
 
 copy and paste this code into a new sketch and click the run button.
 
@@ -96,7 +96,7 @@ void draw() {
 supercollider
 =============
 
-download and install supercollider (3.6.6) from <http://supercollider.github.io>
+download and install supercollider (3.6.6) from <https://supercollider.github.io>
 
 copy this and paste in to a new document. select all and do 'evaluate selection, line or region' under language menu. (cmd+return osx shortcut)
 
@@ -252,9 +252,9 @@ it should print out the sine curve using * characters.
 arduino
 =======
 
-download and install arduino ide (1.0.6) from <http://arduino.cc>
+download and install arduino ide (1.0.6) from <https://arduino.cc>
 
-note: you might also need the ftdi driver <http://www.ftdichip.com/Drivers/VCP.htm>
+note: you might also need the ftdi driver <https://www.ftdichip.com/Drivers/VCP.htm>
 
 note2: for the code below you will need an arduino board of some sort.
 
@@ -297,8 +297,8 @@ note: the internal led will not fade properly (because pin13 can not do pwm), so
 resources
 =========
 
-Dan Shiffman's introduction to programming (using processing) <https://vimeo.com/channels/introcompmedia>
+Dan Shiffman's Introduction - Processing Tutorial <https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZYJC7L-r6rX6utt6wwJCyi>
 
 Eli Fieldsteel's supercollider tutorials <https://www.youtube.com/watch?v=yRzsOOiJ_p4>
 
-online python interpreter <http://repl.it/languages/Python>
+online python interpreter <https://repl.it/languages/Python>

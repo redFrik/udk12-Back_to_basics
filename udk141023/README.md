@@ -1,7 +1,7 @@
 141023
 ======
 
-playing with [processing](http://processing.org).
+playing with [processing](https://processing.org).
 
 download and try the examples in this folder.
 
@@ -22,6 +22,6 @@ these we wrote in class...
 links
 -----
 
-again it is recommended to watch these tutorials: <https://vimeo.com/channels/introcompmedia/71517004>
+again it is recommended to watch these tutorials: Dan Shiffman's Introduction - Processing Tutorial <https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZYJC7L-r6rX6utt6wwJCyi>
 
-and these: <https://vimeo.com/album/2573675>
+and these: <https://vimeo.com/showcase/2573675> (Intro to Processing for Data Viz)

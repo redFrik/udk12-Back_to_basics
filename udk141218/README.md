@@ -154,7 +154,7 @@ here in the picture is an arduino nano, but it will work with any type of arduin
 
 ![mosfet_dcmotor_schem](mosfet_dcmotor_schem.png?raw=true "mosfet_dcmotor_schem")
 
-note that the mosfet might need a [heatsink](http://www.adafruit.com/blog/2012/08/28/new-product-to-220-clip-on-heatsink/). depends on how much current your motor is using and for how long you keep it running. (rule of thumb: if the component is so hot that you can't touch it - add a heatsink - the bigger the better - and best result with a drop of [thermal grease](http://en.wikipedia.org/wiki/Thermal_grease)).
+note that the mosfet might need a [heatsink](https://blog.adafruit.com/2012/08/28/new-product-to-220-clip-on-heatsink/). depends on how much current your motor is using and for how long you keep it running. (rule of thumb: if the component is so hot that you can't touch it - add a heatsink - the bigger the better - and best result with a drop of [thermal grease](https://en.wikipedia.org/wiki/Thermal_paste)).
 
 the 'flyback' diode can be a 1N4001, 1N4007 or anything in between.
 
@@ -162,7 +162,7 @@ use thick short wires for the 12V and motor. don't connect it on a breadboard if
 
 extra2
 --
-synthetic piano with effects. for the following example to work you will need to download and install [sc3-plugins](http://sourceforge.net/projects/sc3-plugins/).
+synthetic piano with effects. for the following example to work you will need to download and install [sc3-plugins](https://supercollider.github.io/sc3-plugins/).
 ```supercollider
 s.boot;
 

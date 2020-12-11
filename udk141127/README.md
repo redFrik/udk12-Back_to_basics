@@ -3,7 +3,7 @@
 
 python experiments
 
-either use <http://repl.it> or the terminal application.
+either use <https://repl.it> or the terminal application.
 
 python is good for writing little glue type of programs. that is communicate between different soft and hardware. one could also use max, pd, python, javascript etc, but python is very small and easy to learn + there are tons of libraries.
 
@@ -274,7 +274,7 @@ for cnt in range(30):
 ```
 
 then run the following in supercollider....
-`"python /Users/Stirling/Desktop/grogs.py".unixCmd` #edit path to match your system
+`"python ~/Desktop/grogs.py".unixCmd` #edit path to match your system
 it should post the following in the post window.
 ```
 mtbt t g tyuahiis ft btenniirl
@@ -311,4 +311,4 @@ RESULT = 0
 ```
 
 and to get the string into sc use this...
-`a= "python /Users/Stirling/Desktop/grogs.py".unixCmdGetStdOut`
+`a= "python ~/Desktop/grogs.py".unixCmdGetStdOut`

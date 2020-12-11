@@ -1,7 +1,7 @@
 141113
 ======
 
-more [supercollider](http://supercollider.github.io).
+more [supercollider](https://supercollider.github.io).
 
 ```supercollider
 //questions from last week?
@@ -80,11 +80,11 @@ Ndef(\sine, {SinOsc.ar(0, SinOsc.ar([400, 404]*Ndef.kr(\sensor).lag(0.1))*Ndef.k
 (
 Ndef(\sensor, {MouseX.kr(0, 1)-DelayN.kr(MouseX.kr(0, 1), 1, 1)});
 Ndef(\sine, {
-var phaseamp= Ndef.kr(\sensor).lag(0.2)*50;
-var phasefreq= [400,404]*Ndef.kr(\sensor).lag(0.01);
-var phasemod= SinOsc.ar(phasefreq)*phaseamp;//try changing here
-var sine= SinOsc.ar(0, phasemod); //dont touch this!
-sine*Ndef.kr(\sensor).lag(0.1);
+    var phaseamp= Ndef.kr(\sensor).lag(0.2)*50;
+    var phasefreq= [400,404]*Ndef.kr(\sensor).lag(0.01);
+    var phasemod= SinOsc.ar(phasefreq)*phaseamp;//try changing here
+    var sine= SinOsc.ar(0, phasemod); //dont touch this!
+    sine*Ndef.kr(\sensor).lag(0.1);
 });
 )
 Ndef(\sine).play
@@ -131,8 +131,8 @@ Ndef(\mx, {Blip.kr(10.01) - DelayN.kr(Blip.kr(5), 0.5, 0.5)});
 links
 -----
 
-lots of examples: <http://sccode.org>
+lots of examples: <https://sccode.org>
 
-tutorials: <http://supercollider.github.io/tutorials/index.html>
+tutorials: <https://supercollider.github.io/tutorials/index.html>
 
-there is a book: <http://supercolliderbook.net>
+there is a book: <https://mitpress.mit.edu/books/supercollider-book>

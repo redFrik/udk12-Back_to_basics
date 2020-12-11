@@ -3,14 +3,14 @@
 
 arduino experiments
 
-download and install arduino ide 1.0.6 or 1.5.8b from <http://arduino.cc/en/Main/Software>
+download and install arduino ide 1.0.6 or 1.5.8b from <https://www.arduino.cc/en/software>
 
-note: if you haven't already, you might need to install the FTDI driver from <http://www.ftdichip.com/Drivers/VCP.htm>. for mac osx get the latest 2.2.18 (and get the 64bit version if you have a recent laptop with a recent osx version (< ~4 years old)).
+note: if you haven't already, you might need to install the FTDI driver from <https://www.ftdichip.com/Drivers/VCP.htm>. for mac osx get the latest 2.2.18 (and get the 64bit version if you have a recent laptop with a recent osx version (< ~4 years old)).
 
 arduino
 --
 
-<http://arduino.cc>
+<https://arduino.cc>
 
 there are many different models:
 * nano
@@ -114,11 +114,11 @@ void loop() {
 }
 ```
 
-there is also more advanced options for doing multi-tasking on an arduino. one is to work with timers (see <http://arduino.cc/en/Tutorial/BlinkWithoutDelay>). another is to use a rtos like FreeRTOS, NilRTOS or ChibiOS (<http://blog.ksduino.org/post/44699789324/multitasking-and-real-time-systems-at-arduino>)
+there is also more advanced options for doing multi-tasking on an arduino. one is to work with timers (see <https://www.arduino.cc/en/Tutorial/BuiltInExamples/BlinkWithoutDelay>). another is to use a rtos like FreeRTOS, NilRTOS or ChibiOS (<https://web.archive.org/web/20160403014254/http://blog.ksduino.org/post/44699789324/multitasking-and-real-time-systems-at-arduino>)
 
 analogWrite
 --
-note it is called analogWrite but the functionallity is actually [pwm](http://arduino.cc/en/Tutorial/PWM) (pulse-width modulation).
+note it is called analogWrite but the functionallity is actually [pwm](https://www.arduino.cc/en/Tutorial/Foundations/PWM) (pulse-width modulation).
 
 ```cpp
 //simple fade led
@@ -258,7 +258,7 @@ note that `Serial.print` and `Serial.println` does some magic under the hood so 
 
 ultrasound
 --
-download the DistanceSRF04 library from <https://code.google.com/p/srf04-library/> and connect like in the picture below.
+download the DistanceSRF04 library from <https://github.com/jeroendoggen/Arduino-distance-sensor-library> and connect like in the picture below.
 
 first try the `ultraschall_test` code that you can find in this directory. check the result in arduino serial monitor (it uses Serial.println).
 
@@ -347,7 +347,7 @@ and different leds will behave differently. higher pwm frequency and dithering a
 links
 --
 one of the best place to find information about what you can do with an arduino and how you do it.
-<http://playground.arduino.cc>
+<https://playground.arduino.cc>
 look at section 'interfacing with hardware / input' for example.
 
 and a year ago we did arduino <https://github.com/redFrik/udk10-Embedded_Systems/blob/master/udk131212/README.md>

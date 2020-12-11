@@ -1,7 +1,7 @@
 141030
 ======
 
-playing with [supercollider](http://supercollider.github.io).
+playing with [supercollider](https://supercollider.github.io).
 
 download and try the examples in this folder.
 
@@ -16,6 +16,6 @@ these we wrote in class...
 links
 -----
 
-it is recommended to watch these video tutorials: <https://www.youtube.com/playlist?list=PLPYzvS8A_rTaNDweXe6PX4CXSGq4iEWYC>
+It is recommended to watch these video tutorials: <https://www.youtube.com/playlist?list=PLPYzvS8A_rTaNDweXe6PX4CXSGq4iEWYC> (SuperCollider Tutorials by Eli Fieldsteel)
 
-and here is a pdf worth reading: <https://ccrma.stanford.edu/~ruviaro/temp/00_PDF_A_Gentle_Introduction_To_SuperCollider_LULU_2014-09-06.pdf>
+and here is a PDF worth reading: <https://ccrma.stanford.edu/~ruviaro/texts/A_Gentle_Introduction_To_SuperCollider.pdf>
